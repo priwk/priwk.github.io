@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+	<meta charset="utf-8">
+	<title>5000兆元风格文字生成器</title>
+	<meta name="description" content="5000兆元neta风格的文字生成器，赶紧填入自己喜欢的文字吧！" />
+	<style type="text/css">
+		@font-face {
+			font-family: 'notobk';
+			src: url('notobk-subset.otf') format('opentype');
+		}
+
+		@font-face {
+			font-family: 'notoserifbk';
+			src: url('notoserifbk-subset.otf') format('opentype');
+		}
+
+		div {
+			display: block;
+			margin: 10px 0;
+		}
+
+		input[type="radio"] {
+			display: none;
+		}
+
+		label {
+			display: inline-block;
+			color: black;
+			background-color: lightgray;
+			padding: 3px 10px;
+		}
+
+		.text-order {
+			/* display: none; */
+		}
+
+		.text-order input[type="radio"]:checked+label {
+			color: white !important;
+			background-color: blue !important;
+		}
+
+		.background-order input[type="radio"]:checked+label {
+			color: white;
+			background-color: black;
+		}
+	</style>
+	<script src="settings.js"></script>
+	<script src="generator.js"></script>
+	<script src="drawer.js"></script>
+	<script src="hoshii.js"></script>
+	<!--<script src="canvasImage.js"></script>-->
+	<script src="canvas.js"></script>
+	<script src="main.js"></script>
+</head>
+
+<body>
+	<h1>5000兆元风格文字生成器</h1>
+	<div>
+		<p>
+			<span>
+				<!-- eslint-disable -->
+				一个5000兆元风格的文字生成工具。<font color="blue">「欲しい!」</font> 也能生成。
+			</span>
+		</p>
+		<hr>
+		<div>
+			<h4>贡献者列表：</h4>
+			<span>
+				汉化:
+				<a href="https://github.com/SekiBetu">@SekiBetu</a>，
+			</span>
+			<span>
+				二次开发者:
+				<a href="https://twitter.com/yurafuca">@yurafuca</a>（<a href="http://yurafuca.com/5000choyen/">5000兆円ジェネレーター super</a>），
+			</span>
+			<span>
+				原作者:
+				<a href="https://twitter.com/rarity_rare25">@rarity_rare25</a>（<a href="https://rare25.github.io/5000choyen/">5000兆円ジェネレーター</a>）
+			</span>
+		</div>
+		<hr>
+
+		<div>
+			<h4>更新日志</h4>
+			<p><font color="blue">2021-01-26: 加入中文翻译</font></p>
+			<p><font color="blue">2018-06-10: 修复 404 NotFound 的问题</font></p>
+
+		</div>
+		<hr>
+
+	</div>
+	<div>
+		<canvas id="canvas" width="1500px" height="280px"></canvas>
+	</div>
+	<div>
+		<canvas id="canvas2" width="1500px" height="300px" style="display: none"></canvas>
+	</div>
+	<div class="text-order">
+		<font color="blue">「欲しい!」</font> 的图片选择：
+		<input id="bar1" type="radio" name="text-order" value="image">
+		<label for="bar1">使用原neta的图片</label>
+		<input id="bar2" type="radio" name="text-order" value="text" checked>
+		<label for="bar2">使用本生成器重新生成</label>
+	</div>
+	<div class="background-order">
+		图像背景颜色选择：
+		<input id="bar3" type="radio" name="background-order" value="transparent">
+		<label for="bar3">透明</label>
+		<input id="bar4" type="radio" name="background-order" value="white" checked>
+		<label for="bar4">白色</label>
+	</div>
+	<div>
+		<span id="labelTop">红色文字部分：</span>
+		<input type="text" id="textboxTop" size="50" value="" spellcheck="false" oninput="_canvas.redrawTop();">
+		<br>
+		<span id="labelBottom">银色文字部分：</span>
+		<input type="text" id="textboxBottom" size="50" value="" spellcheck="false" oninput="_canvas.redrawBottom();">
+	</div>
+	<div>
+		<button type="button" onclick="_canvas.save();">保存图片(下载)</button>
+		<button type="button" onclick="_canvas.newtab();">在新标签页中打开图片</button>
+	</div>
+	<div>
+		<hr>
+
+		<p>
+			「欲しい!」 的图片是可以拖拽的。
+			<br>
+			<video autoplay loop muted style="max-width:600px">
+				<source src="demo.mp4" type="video/mp4">
+				<source src="demo.webm" type="video/webm">
+			</video>
+		</p>
+		<hr>
+
+	</div>
+	<div>
+		源码:
+		<a href="https://github.com/SekiBetu/5000choyen">SekiBetu/5000choyen</a>
+	</div>
+
+
+</body>
+
+</html>
